@@ -1,0 +1,27 @@
+How to compile my code
+作業環境 Windows8 
+必須先安裝opengl32，以及需要freeglut 
+在編譯前從.\freeglut\bin 或是 .\freeglut\bin\x64 將 freeglut.dll 放在與mpeg.cpp同層資料夾下
+在terminal輸入 "make" 進行編譯，如果不行改用 "make x86"，或是執行下列指令
+g++ tree.cpp -c -o tree.o -std=c++11
+g++ mpeg.cpp -c -o mpeg.o -Ifreeglut/include -std=c++11
+g++ tree.o mpeg.o -std=c++11 -O3 -o mpeg -Lfreeglut/lib/x64 -lfreeglut -lopengl32
+
+What I have done
+成功解碼 I P B
+可以在1秒內解完助教給的三個影片，打開程式馬上撥放
+簡單的GUI和按鍵指令
+Tittle顯示現在撥放速度 +為正向 -為反向
+p 暫停/開始
+f 快轉
+s 慢放
+b 倒轉/正向播放
+r 從頭且正向撥放
+e 直接到片尾
+
+
+
+mpeg.cpp 主要解碼和GUI產生的地方
+header.h 宣告各層header
+tree.h tree.cpp 產生huffman tree的函式
+tree_data.h 產生各種huffman tree所需資料
